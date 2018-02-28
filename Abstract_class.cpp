@@ -1,10 +1,8 @@
 #include <iostream>
-#include <vector>
-#include <map>
 #include <string>
-#include <algorithm>
 #include <set>
-#include <cassert>
+#include <deque>
+
 using namespace std;
 
 /*
@@ -27,25 +25,25 @@ protected:
 };
 */
 
-#include <deque>
+
 class LRUCache{
 public:
-	deque<pair<int,int> >v;
+	deque<pair<int,int> >value;
 	int cp;
 	LRUCache(const int &x){cp=x;}
 	int get(int x){
-		for(int i=0;i<v.size();i++)if(v[i].first==x)return v[i].second;
+		for(int i=0;i<value.size();i++)if(value[i].first==x)return value[i].second;
 		return -1;
 	}
 	void set(int x,int y){
 		int i=0;
-		for(;i<v.size();i++)
-		    if(v[i].first==x){
-		        v.erase(v.begin()+i);
+		for(;i<value.size();i++)
+		    if(value[i].first==x){
+		        value.erase(value.begin()+i);
 		        break;
 		    }
-		if(i==cp)v.pop_back();
-		v.push_front(make_pair(x,y));
+		if(i==cp)value.pop_back();
+		value.push_front(make_pair(x,y));
 	}
 };
 
