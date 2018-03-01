@@ -32,7 +32,7 @@ public:
 };
 ```
 
-I like another approached too:
+I like another approach too:
 ```
 class LRUCache {
 public:
