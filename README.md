@@ -9,3 +9,18 @@ Based on the problem design, https://www.hackerrank.com/challenges/abstract-clas
 Since there is constraints for command lines, cache capacity, key range and value range. I did some housekeep to ensure the value input within the constraints. 
 
 See attached .cpp file for your review. 
+I like another approached too:
+```
+class LRUCache {
+public:
+	map<int, int> mp;
+	LRUCache(int x) {}
+	int get(int key) {
+		if (mp.count(key)) return mp[key];
+		return -1;
+	}
+	void set(int key, int val) {
+		mp[key] = val;
+	}
+};
+```
